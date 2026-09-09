@@ -1,0 +1,634 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   ORIGINAL EVENTNEST USER PAGE
+========================================================= */
+
+.app {
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.app header {
+  background: #111827;
+  color: white;
+  text-align: center;
+  padding: 35px 20px;
+}
+
+.app header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.app header p {
+  margin: 10px 0 0;
+  color: #d1d5db;
+}
+
+.events-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.event-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.event-card h2 {
+  margin-top: 0;
+  color: #111827;
+}
+
+.event-card p {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.event-card button,
+.event-details button {
+  background: #f97316;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.event-card button:hover,
+.event-details button:hover {
+  opacity: 0.9;
+}
+
+.event-details {
+  max-width: 700px;
+  margin: 40px auto;
+  background: white;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.event-details h2 {
+  font-size: 30px;
+  margin-top: 0;
+}
+
+.event-details p {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.event-details input {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  margin: 12px 0;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.event-details hr {
+  margin: 30px 0;
+  border: none;
+  border-top: 1px solid #e5e7eb;
+}
+
+
+/* =========================================================
+   ADMIN DASHBOARD
+========================================================= */
+
+.admin-dashboard {
+  min-height: 100vh;
+  display: flex;
+  background: #f5f7fb;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: #111827;
+  color: white;
+  padding: 30px 20px;
+  flex-shrink: 0;
+}
+
+.sidebar h2 {
+  margin: 0 0 35px;
+  font-size: 28px;
+}
+
+.admin-title {
+  font-size: 11px;
+  color: #9ca3af;
+  margin: 0 0 15px;
+  letter-spacing: 1px;
+}
+
+.sidebar button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #d1d5db;
+  text-align: left;
+  padding: 14px 15px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.sidebar button:hover {
+  background: #1f2937;
+  color: white;
+}
+
+.sidebar .active-menu {
+  background: #f97316;
+  color: white;
+}
+
+
+/* =========================================================
+   DASHBOARD CONTENT
+========================================================= */
+
+.dashboard-content {
+  flex: 1;
+  padding: 35px;
+  overflow-y: auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.dashboard-header p {
+  margin-top: 8px;
+  color: #6b7280;
+}
+
+.admin-profile {
+  background: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================================
+   DASHBOARD STATISTICS
+========================================================= */
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.stat-card {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-icon {
+  font-size: 30px;
+}
+
+.stat-card p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.stat-card h2 {
+  margin: 5px 0 0;
+  font-size: 28px;
+}
+
+
+/* =========================================================
+   DASHBOARD SECTIONS
+========================================================= */
+
+.dashboard-section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  margin: 0;
+}
+
+
+/* =========================================================
+   DASHBOARD TABLE
+========================================================= */
+
+.event-table {
+  width: 100%;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 15px;
+  border-bottom: 1px solid #e5e7eb;
+  align-items: center;
+}
+
+.table-header {
+  font-weight: bold;
+  color: #6b7280;
+  background: #f9fafb;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-row:hover {
+  background: #f9fafb;
+}
+
+
+/* =========================================================
+   USERS PAGE
+========================================================= */
+
+.users-page {
+  min-height: 100%;
+}
+
+.management-page {
+  min-height: 100%;
+}
+
+.page-message {
+  padding: 24px 15px;
+  color: #6b7280;
+  margin: 0;
+}
+
+
+/* =========================================================
+   USERS HEADER
+========================================================= */
+
+.users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.users-header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.users-header p {
+  margin-top: 8px;
+  color: #6b7280;
+}
+
+.add-user-button {
+  background: #f97316;
+  color: white;
+  border: none;
+  padding: 13px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.add-user-button:hover {
+  background: #ea580c;
+}
+
+.add-user-form {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+  gap: 12px;
+  align-items: start;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.add-user-form input,
+.add-user-form select {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  font-size: 14px;
+}
+
+.form-message {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #b91c1c;
+}
+
+
+/* =========================================================
+   USERS SEARCH BAR
+========================================================= */
+
+.users-toolbar {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.users-toolbar input {
+  width: 100%;
+  max-width: 500px;
+  padding: 13px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.users-toolbar input:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.1);
+}
+
+
+/* =========================================================
+   USERS TABLE
+========================================================= */
+
+.users-table {
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.users-table-header,
+.users-table-row {
+  display: grid;
+  grid-template-columns:
+    1.2fr
+    1.6fr
+    1fr
+    1fr
+    1fr;
+
+  align-items: center;
+  padding: 17px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.users-table-header {
+  font-weight: bold;
+  color: #6b7280;
+  background: #f9fafb;
+}
+
+.users-table-row:hover {
+  background: #f9fafb;
+}
+
+.users-table-row:last-child {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   ROLE BADGE
+========================================================= */
+
+.role-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-transform: capitalize;
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+
+/* =========================================================
+   STATUS BADGE
+========================================================= */
+
+.status-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-transform: capitalize;
+  background: #dcfce7;
+  color: #166534;
+}
+
+
+/* =========================================================
+   USER ACTION BUTTONS
+========================================================= */
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-button,
+.delete-button {
+  border: none;
+  background: transparent;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.edit-button:hover {
+  background: #eef2ff;
+}
+
+.delete-button:hover {
+  background: #fee2e2;
+}
+
+
+/* =========================================================
+   NO USERS
+========================================================= */
+
+.no-users {
+  padding: 40px;
+  text-align: center;
+  color: #6b7280;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sidebar {
+    width: 210px;
+  }
+
+  .dashboard-content {
+    padding: 25px;
+  }
+}
+
+
+@media (max-width: 750px) {
+
+  .admin-dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .sidebar h2 {
+    margin-bottom: 20px;
+  }
+
+  .dashboard-content {
+    padding: 20px;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .users-page {
+    min-height: auto;
+  }
+
+  .users-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .add-user-form {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+  }
+
+  .events-container {
+    grid-template-columns: 1fr;
+    margin-top: 25px;
+  }
+
+  .event-details {
+    margin: 25px 15px;
+    padding: 25px;
+  }
+
+  .users-table {
+    overflow-x: auto;
+  }
+
+  .users-table-header,
+  .users-table-row {
+    min-width: 750px;
+  }
+
+  .add-user-form {
+    grid-template-columns: 1fr;
+  }
+}
